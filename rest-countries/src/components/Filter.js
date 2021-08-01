@@ -11,9 +11,11 @@ const Filter = () => {
                     <div className="space"></div>
                     <input type="search" name="" className="search-input" placeholder="Search for a country..." />
                 </div>
+                <div className="height"></div>
                 <div className="filter">
                     <select name="select" className="select">
-                        <option value="Defautl" hidden >Filter by region</option>
+                        <option value="Default" hidden >Filter by region</option>
+                        <option value="All" disabled>Show All</option>
                         <option value="Asia">Asia</option>
                         <option value="Africa">Africa</option>
                         <option value="Europe">Europe</option>
