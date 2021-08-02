@@ -11,12 +11,11 @@ const Country = () => {
         const fetchDataApi = async () => {
             const response = await fetch(`https://restcountries.eu/rest/v2/name/${name}`)
             const country = await response.json();
-            console.log(country);
             setCountry(country)
         }
 
         fetchDataApi();
-    }, [])
+    }, [name])
 
     return (
         <>
@@ -28,26 +27,26 @@ const Country = () => {
 
                     return (
                         <div className="country-info" key={numericCode}>
-                            <div className="flag"><img src={flag} alt={name} /></div>
+                            <div className="flag"><img src={flag} alt={name} className="flag-img" /></div>
                             <div className="country-text">
-                                <h2>{name}</h2>
+                                <h2 className="country-name">{name}</h2>
                                 <div className="country-details">
                                     <div className="one">
-                                        <h4>Native Name :<span>{nativeName}</span></h4>
+                                        <h4>Native Name : <span>{nativeName}</span></h4>
                                         <h4>Population : <span>{population}</span></h4>
-                                        <h4>Region :<span>{region}</span></h4>
-                                        <h4>Sub Region :<span>{subregion}</span></h4>
-                                        <h4>Capital :<span>{capital}</span></h4>
+                                        <h4>Region : <span>{region}</span></h4>
+                                        <h4>Sub Region : <span>{subregion}</span></h4>
+                                        <h4>Capital : <span>{capital}</span></h4>
                                     </div>
                                     <div className="two">
-                                        <h4> Top Level Domain :<span>{topLevelDomain}</span></h4>
+                                        <h4> Top Level Domain : <span>{topLevelDomain}</span></h4>
                                         <h4>Currencies : <span>{currencies[0].name}</span></h4>
-                                        <h4>Languages :<span>{languages[0].name}</span></h4>
+                                        <h4>Languages : <span>{languages[0].name}</span></h4>
                                     </div>
                                 </div>
                                 <div className="border">
                                     <h2>border :</h2>
-                                    {borders.map((border) => {
+                                    {borders.length===0 ? <h2 className="warning-border"> No bordering countries present!</h2>: borders.map((border) => {
                                         return (
                                             <ul key={border}>
                                                 <li>{border}</li>
