@@ -34,13 +34,8 @@ const App = () => {
   }, [select])
 
   const resetCountries = async () => {
-    const searchBar = document.querySelector(".search-input")
-    searchBar.value = ""
-    const url = 'https://restcountries.eu/rest/v2/all'
-    const response = await fetch(url);
-    const countries = await response.json();
-    setCountries(countries)
-    console.log(countries)
+    // eslint-disable-next-line no-restricted-globals
+    location.reload(true);
   }
 
   return (
