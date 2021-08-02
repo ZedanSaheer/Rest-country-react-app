@@ -1,12 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito+Sans:200,200italic,300,300italic,regular,italic,600,600italic,700,700italic,800,800italic,900,900italic);
 :root {
-  --DarkModeElements: hsl(209, 23%, 22%);
-  --DarkModeBackground: hsl(207, 26%, 17%);
-  --LightModeText: hsl(200, 15%, 8%);
-  --DarkLightModeInput: hsl(0, 0%, 52%);
-  --LightLightModeBackground: hsl(0, 0%, 98%);
-  --DarkModeText:hsl(0, 0%, 100%);
-  --LightModeElements: hsl(0, 0%, 100%);
+  --DarkBlueDarkModeElements: hsl(209, 23%, 22%);
+  --VeryDarkBlueDarkModeBackground: hsl(207, 26%, 17%);
+  --VeryDarkBlueLightModeText: hsl(200, 15%, 8%);
+  --DarkGrayLightModeInput: hsl(0, 0%, 52%);
+  --VeryLightGrayLightModeBackground: hsl(0, 0%, 98%);
+  --WhiteDarkModeTextLightModeElements: hsl(0, 0%, 100%);
 }
 
 * {
@@ -28,8 +27,8 @@
 
 body {
   font-family: "nunito sans", sans-serif;
-  background-color: var(--DarkModeBackground);
-  color: var(--DarkModeTextLightModeElements);
+  background-color: var(--VeryDarkBlueDarkModeBackground);
+  color: var(--WhiteDarkModeTextLightModeElements);
 }
 
 .grid {
@@ -50,11 +49,17 @@ body {
 .country-grid-text {
   margin-top: -10px;
   padding: 30px;
-  background: var(--DarkModeElements);
+  background: var(--DarkBlueDarkModeElements);
 }
 
 .mode {
   cursor: pointer;
+  padding: 10px;
+  border:none;
+  background: transparent;
+  color:var(--WhiteDarkModeTextLightModeElements);
+  font-weight: 700;
+  font-size: 1rem;
 }
 
 h6 {
@@ -82,7 +87,7 @@ span {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background: var(--DarkModeElements);
+  background: var(--DarkBlueDarkModeElements);
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.100);
   width: 100%;
 }
@@ -109,7 +114,7 @@ span {
   display: flex;
   align-items: center;
   padding: 0px 20px;
-  background: var(--DarkModeElements);
+  background: var(--DarkBlueDarkModeElements);
   border-radius: 5px;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.100);
 }
@@ -118,7 +123,7 @@ span {
   border: none;
   padding: 15px 20px;
   outline: none;
-  color: var(--DarkModeTextLightModeElements);
+  color: var(--WhiteDarkModeTextLightModeElements);
   background: transparent;
   width: 100%;
   height: 60px;
@@ -126,7 +131,7 @@ span {
 
 .search-input::placeholder {
   font-family: "nunito sans", sans-serif;
-  color: var(--DarkModeTextLightModeElements);
+  color: var(--WhiteDarkModeTextLightModeElements);
   font-weight: 200;
   letter-spacing: .5px;
 }
@@ -140,9 +145,9 @@ span {
 .select {
   width: 200px;
   padding: 20px;
-  color: var(--DarkModeTextLightModeElements);
+  color: var(--WhiteDarkModeTextLightModeElements);
   font-weight: 200;
-  background: var(--DarkModeElements);
+  background: var(--DarkBlueDarkModeElements);
   border-radius: 5px;
   border: none;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.100);
@@ -161,11 +166,11 @@ span {
 }
 
 .btn {
-  background: var(--DarkModeBackground);
+  background: var(--VeryDarkBlueDarkModeBackground);
   text-decoration: none;
   outline: none;
   border: none;
-  color: var(--DarkModeTextLightModeElements);
+  color: var(--WhiteDarkModeTextLightModeElements);
   font-size: 12px;
   text-align: left;
   padding: 10px;
@@ -181,14 +186,14 @@ span {
 }
 
 .btn.left {
-  background: var(--DarkModeElements);
+  background: var(--DarkBlueDarkModeElements);
   padding: 20px;
   border-radius: 5px;
 }
 
 .btn.left:hover{
-  background: ;
-  color: var(--DarkModeElements);
+  background: white;
+  color: var(--DarkBlueDarkModeElements);
 }
 
 .btn.link {
@@ -196,14 +201,14 @@ span {
 }
 
 .btn:hover {
-  color: var(--DarkModeBackground);
-  background: var(--DarkModeTextLightModeElements);
+  color: var(--VeryDarkBlueDarkModeBackground);
+  background: var(--WhiteDarkModeTextLightModeElements);
 }
 
 .nav {
   display: flex;
   align-items: center;
-  background: var(--DarkModeElements);
+  background: var(--DarkBlueDarkModeElements);
 }
 
 .page-nav-text {
@@ -259,7 +264,7 @@ h2 {
 .border ul li {
   list-style-type: none;
   margin: 5px 15px;
-  background: var(--DarkModeElements);
+  background: var(--DarkBlueDarkModeElements);
   padding: 10px;
   border-radius: 5px;
 }
@@ -273,7 +278,7 @@ h2 {
   font-size: 1rem;
   margin-left: 10px;
   text-transform: uppercase;
-  background: var(--DarkModeElements);
+  background: var(--DarkBlueDarkModeElements);
   padding: 10px;
   border-radius: 5px;
 }
@@ -338,7 +343,7 @@ h2 {
     justify-content: center;
   }
   .btn.left {
-    background: var(--DarkModeElements);
+    background: var(--DarkBlueDarkModeElements);
     padding: 20px;
     border-radius: 5px;
     width: 200px;
