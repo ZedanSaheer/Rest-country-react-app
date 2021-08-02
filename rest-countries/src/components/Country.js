@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { TiArrowBack } from 'react-icons/ti'
 
-const Country = () => {
+const Country = ({setButton}) => {
 
     const [country, setCountry] = useState([]);
     const { name } = useParams();
@@ -19,7 +19,7 @@ const Country = () => {
 
     return (
         <>
-            <div className="country-page-nav"><Link to="/" className="btn nav"><TiArrowBack className="back-icon" /><span className="page-nav-text">Back home</span></Link></div>
+            <div className="country-page-nav"><Link to="/" className="btn nav" onClick={setButton(false)}><TiArrowBack className="back-icon" /><span className="page-nav-text">Back home</span></Link></div>
             <div className="country-page" >
 
                 {country.map((c) => {

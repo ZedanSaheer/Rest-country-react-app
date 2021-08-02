@@ -1,7 +1,7 @@
 import React from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
 
-const Filter = ({ button , handleChange , reset}) => {
+const Filter = ({ button , handleChange , reset , handleSelectChange}) => {
 
     return (
         <>
@@ -18,9 +18,8 @@ const Filter = ({ button , handleChange , reset}) => {
                 </button></div> : null}
                 <div className="height"></div>
                 <div className="filter">
-                    <select name="select" className="select">
+                    <select name="select" className="select" onChange={handleSelectChange}>
                         <option value="Default" hidden >Filter by region</option>
-                        <option value="All" disabled>Show All</option>
                         <option value="Asia">Asia</option>
                         <option value="Africa">Africa</option>
                         <option value="Europe">Europe</option>
