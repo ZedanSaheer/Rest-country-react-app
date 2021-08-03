@@ -32,7 +32,7 @@ const App = () => {
   useEffect(() => {
     setCountries(newSelectCountry)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [select])
 
   const resetCountries = async () => {
     // eslint-disable-next-line no-restricted-globals
