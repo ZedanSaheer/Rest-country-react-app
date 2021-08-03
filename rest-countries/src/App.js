@@ -28,10 +28,11 @@ const App = () => {
     setSelect(e.target.value);
     setButton(true)
   }
-
+  
   useEffect(() => {
     setCountries(newSelectCountry)
-  }, [select])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const resetCountries = async () => {
     // eslint-disable-next-line no-restricted-globals
