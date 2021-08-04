@@ -11,16 +11,31 @@ const App = () => {
   const [search, setSearch] = useState("");
   const [countries, setCountries] = useState([])
   const [button, setButton] = useState(false)
+  const [newCountries , setNewCountries] = useState("")
 
-  const newSearchCountry = countries.filter((country) => (country.name.toLowerCase().includes(search.toLowerCase())))
+  const url = 'https://restcountries.eu/rest/v2/all'
+
+    const fetchDataApiSearch = async () => {
+        const response = await fetch(url);
+        const countries = await response.json();
+        setNewCountries(countries)
+    }
+
+    useEffect(() => {
+     fetchDataApiSearch()
+    }, [])
+
+  const newSearchCountry = countries.filter((country) => {
+    return country.name.toLowerCase().includes(search.toLowerCase())})
 
 
-  const newSelectCountry = countries.filter((country) => (country.region.toLowerCase().includes(select.toLowerCase())))
-
+  const newSelectCountry = countries.filter((country) => {
+    return country.region.toLowerCase().includes(select.toLowerCase())})
 
   const searchHandle = (e) => {
     setSearch(e.target.value);
-    setCountries(newSearchCountry);
+    setNewCountries(newSearchCountry);
+    console.log(newSearchCountry)
     setButton(true)
   }
 
@@ -28,9 +43,9 @@ const App = () => {
     setSelect(e.target.value);
     setButton(true)
   }
-  
+
   useEffect(() => {
-    setCountries(newSelectCountry)
+    setNewCountries(newSelectCountry)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [select])
 
@@ -46,8 +61,8 @@ const App = () => {
         <Filter handleChange={searchHandle} button={button} reset={resetCountries}
           handleSelectChange={selectHandle}
         />
-        <Countries countries={countries} setCountries
-          ={setCountries} />
+        <Countries countries={newCountries} setCountries
+          ={setCountries} /> 
       </Route>
       <Route path="/countries/:name" children={<Country button={button} setButton={setButton} />}>
       </Route>

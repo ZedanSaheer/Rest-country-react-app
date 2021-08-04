@@ -1,7 +1,7 @@
 import React from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
 
-const Filter = ({ button , handleChange , reset , handleSelectChange}) => {
+const Filter = ({ button , handleChange , reset , handleSelectChange }) => {
 
     return (
         <>
@@ -10,7 +10,7 @@ const Filter = ({ button , handleChange , reset , handleSelectChange}) => {
                     <AiOutlineSearch />
                     <div className="space"></div>
                     <div className="space"></div>
-                    <input type="search" name="" className="search-input" placeholder="Search for a country..." onInput={handleChange} />
+                    <input type="search" name="" className="search-input" placeholder="Search for a country..." onChange={handleChange} />
                 </div>
                 <div className="height"></div>
                 {button ? <div className="reset"> <button className="btn left" onClick={reset}>

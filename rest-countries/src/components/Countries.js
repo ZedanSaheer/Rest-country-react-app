@@ -23,7 +23,7 @@ const Countries = ({countries, setCountries}) => {
 
     return (
         <>
-            <div className="amount"><h6>Showing {countries.length} {countries.length < 2 ?"country" : "countries"} around the globe!</h6></div>
+            <div className="amount"><h6>Showing {countries.length} {countries.length < 2 ?"country" : "countries"} around the world!</h6></div>
             <section className="grid">
                 {countries.map((country) => {
                     const { numericCode, name, population, region, capital, flag } = country
