@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const url = 'https://restcountries.eu/rest/v2/all'
 
-const Countries = ({countries, setCountries}) => {
+const Countries = ({newCountries , countries, setCountries}) => {
 
     const fetchDataApi = async () => {
         const response = await fetch(url);
@@ -21,11 +21,12 @@ const Countries = ({countries, setCountries}) => {
          // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
+
     return (
         <>
             <div className="amount"><h6>Showing {countries.length} {countries.length < 2 ?"country" : "countries"} around the world!</h6></div>
             <section className="grid">
-                {countries.map((country) => {
+                {newCountries.map((country) => {
                     const { numericCode, name, population, region, capital, flag } = country
 
                     return (

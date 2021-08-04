@@ -11,14 +11,14 @@ const App = () => {
   const [search, setSearch] = useState("");
   const [countries, setCountries] = useState([])
   const [button, setButton] = useState(false)
-  const [newCountries , setNewCountries] = useState("")
+  const [newCountries , setNewCountries] = useState([])
 
   const url = 'https://restcountries.eu/rest/v2/all'
 
     const fetchDataApiSearch = async () => {
         const response = await fetch(url);
-        const countries = await response.json();
-        setNewCountries(countries)
+        const newCountriesData = await response.json();
+        setNewCountries(newCountriesData)
     }
 
     useEffect(() => {
@@ -35,7 +35,6 @@ const App = () => {
   const searchHandle = (e) => {
     setSearch(e.target.value);
     setNewCountries(newSearchCountry);
-    console.log(newSearchCountry)
     setButton(true)
   }
 
@@ -61,7 +60,7 @@ const App = () => {
         <Filter handleChange={searchHandle} button={button} reset={resetCountries}
           handleSelectChange={selectHandle}
         />
-        <Countries countries={newCountries} setCountries
+        <Countries countries={countries} newCountries={newCountries} setCountries
           ={setCountries} /> 
       </Route>
       <Route path="/countries/:name" children={<Country button={button} setButton={setButton} />}>
