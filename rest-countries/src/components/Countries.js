@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-const url = 'https://restcountries.eu/rest/v2/all'
+const url = 'https://restcountries.com/v3.1/all'
 
 const Countries = ({newCountries , countries, setCountries}) => {
 
