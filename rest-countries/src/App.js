@@ -13,7 +13,7 @@ const App = () => {
   const [button, setButton] = useState(false)
   const [newCountries , setNewCountries] = useState([])
 
-  const url = 'https://restcountries.eu/rest/v2/all'
+  const url = 'https://restcountries.eu/rest/v3.1/all'
 
     const fetchDataApiSearch = async () => {
         const response = await fetch(url);
