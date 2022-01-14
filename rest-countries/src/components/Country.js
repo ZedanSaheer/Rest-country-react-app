@@ -9,7 +9,7 @@ const Country = ({setButton}) => {
 
     useEffect(() => {
         const fetchDataApi = async () => {
-            const response = await fetch(`https://restcountries.eu/rest/v2/name/${name}`)
+            const response = await fetch(`https://restcountries.com/v3.1/name/${name}`)
             const country = await response.json();
             setCountry(country)
         }
