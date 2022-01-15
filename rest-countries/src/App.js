@@ -11,26 +11,27 @@ const App = () => {
   const [search, setSearch] = useState("");
   const [countries, setCountries] = useState([])
   const [button, setButton] = useState(false)
-  const [newCountries , setNewCountries] = useState([])
+  const [newCountries, setNewCountries] = useState([])
 
-  const url = 'https://restcountries.com/v3.1/all'
+  const url = 'https://restcountries.com/v2/all'
 
-    const fetchDataApiSearch = async () => {
-        const response = await fetch(url);
-        const newCountriesData = await response.json();
-        setNewCountries(newCountriesData)
-    }
+  const fetchDataApiSearch = async () => {
+    const response = await fetch(url);
+    const newCountriesData = await response.json();
+    setNewCountries(newCountriesData);
+  }
 
-    useEffect(() => {
-     fetchDataApiSearch()
-    }, [])
+  useEffect(() => {
+    fetchDataApiSearch()
+  }, []);
 
   const newSearchCountry = countries.filter((country) => {
-    return country.name.toLowerCase().includes(search.toLowerCase())})
-
+    return country.name.includes(search.toLowerCase())
+  });
 
   const newSelectCountry = countries.filter((country) => {
-    return country.region.toLowerCase().includes(select.toLowerCase())})
+    return country.region.toLowerCase().includes(select.toLowerCase())
+  });
 
   const searchHandle = (e) => {
     setSearch(e.target.value);
@@ -61,7 +62,7 @@ const App = () => {
           handleSelectChange={selectHandle}
         />
         <Countries countries={countries} newCountries={newCountries} setCountries
-          ={setCountries} /> 
+          ={setCountries} />
       </Route>
       <Route path="/countries/:name" children={<Country button={button} setButton={setButton} />}>
       </Route>

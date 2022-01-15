@@ -1,19 +1,20 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-const url = 'https://restcountries.com/v3.1/all'
+
 
 const Countries = ({newCountries , countries, setCountries}) => {
 
     const fetchDataApi = async () => {
+        const url = 'https://restcountries.com/v2/all';
         const response = await fetch(url);
         const countries = await response.json();
-        setCountries(countries)
+        setCountries(countries);
     }
 
     const removeCountry = (numericCode) => {
         const newCountry = countries.filter((country) => country.numericCode !== numericCode)
-        setCountries(newCountry)
+        setCountries(newCountry);
     }
 
     useEffect(() => {
@@ -26,20 +27,20 @@ const Countries = ({newCountries , countries, setCountries}) => {
         <>
             <section className="grid">
                 {newCountries.map((country) => {
-                    const { numericCode, name, population, region, capital, flag } = country
+                    const { numericCode, name, population, region, capital, flags } = country
 
                     return (
                         <div key={numericCode} className="country">
-                            <div className="image-container"  style={{backgroundImage: `url(${flag})`}}>
+                            <div className="image-container"  style={{backgroundImage: `url(${flags.png})`}}>
                             </div>
                             <div className="country-grid-text">
-                                <h3>{name}</h3>
+                                <h3>{name.common}</h3>
                                 <h4>Population : <span>{population}</span></h4>
                                 <h4>Region : <span>{region}</span></h4>
                                 <h4>Capital : <span>{capital}</span></h4>
                                 <div className="height"></div>
                                 <div className="buttons">
-                                    <Link to={`/countries/${name}`} className="btn link">Show More</Link>
+                                    <Link to={`/countries/${name.common}`} className="btn link">Show More</Link>
                                     <div className="height"></div>
                                     <button className="btn" onClick={() => {
                                         removeCountry(numericCode)
